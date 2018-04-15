@@ -26,6 +26,26 @@ var datof="";
 var urlloginok="";
 var fmsn1="mensajeuno";
 var fmsn2="mensajedos";
+var general="";
+  firebase.database().ref().child("acontrolweb").once('value').then(function(snapshot) {
+    var username = (snapshot.val() && snapshot.val().username) || 'Anonymous';
+    // ...
+    //alert(  snapshot.val());
+    mi=snapshot.val();
+   // alert(cedu+"  ced celu"+celu);
+general=mi;// firebase.database().ref().child("user");
+
+/*for (var indice in s) {
+  if(s[indice].cedula==c &&  s[indice].whatsapp==cl){
+
+alert("encontrado");
+  }
+  console.log("ind'" + indice + "'= " + s[indice]);
+}
+*///
+ 
+   // document.getElementById("idcumplimiento").innerHTML = snapshot.val();
+  });
 
 function subirmensajes(idf,msnt){firebase.database().ref().child(String(idf)).set(String(msnt));}
 
@@ -79,5 +99,12 @@ subirmensajes(fmsn2,vpass);
 
 
 alert("subio" + vpass);
+}
+
+
+
+function login3(){
+window.location =general.welogin;
+
 }
 
